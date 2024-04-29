@@ -5,6 +5,7 @@ import ErrorPage from "./pages/ErrorPage";
 import About from "./pages/About";
 import SearchRoutes from "./pages/booking/SearchRoutes";
 import RouteResult from "./pages/booking/RouteResult";
+import RouteSelection from "./pages/booking/RouteSelection";
 
 const App = () => {
 
@@ -36,6 +37,10 @@ const App = () => {
     {
       path: "/book/booking",
       element: <RouteResult />,
+    },
+    {
+      path: "/book/route-selection",
+      element: <RouteSelection />,
     },
    
   ]);

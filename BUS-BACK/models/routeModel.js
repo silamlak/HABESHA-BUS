@@ -13,14 +13,22 @@ const routeSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  cost: {
+    type: Number,
+    required: true
+  },
   duration: {
     type: Number,
     required: true
   },
   busId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Buses',
+    type: String,
     required: true
+  },
+  dateAdded: {
+    type: Date,
+    required: true,
+    default: Date.now()
   },
 }, {timestamps: true});
 

@@ -5,8 +5,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const options = [
-  { value: "new-york", label: "New York" },
-  { value: "los-angeles", label: "Los Angeles" },
+  { value: "Addis", label: "Addis" },
+  { value: "Gondar", label: "Gondar" },
   { value: "chicago", label: "Chicago" },
   { value: "houston", label: "Houston" },
   { value: "phoenix", label: "Phoenix" },
