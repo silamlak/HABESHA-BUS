@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import ErrorPage from "./pages/ErrorPage";
 import About from "./pages/About";
+import SearchRoutes from "./pages/booking/SearchRoutes";
+import RouteResult from "./pages/booking/RouteResult";
 
 const App = () => {
 
@@ -20,11 +22,20 @@ const App = () => {
           path: "/contact/:id",
           element: <Contact />,
         },
+        
       ]
     },
     {
       path: "/contact",
       element: <Contact />,
+    },
+    {
+      path: "/book",
+      element: <SearchRoutes />,
+    },
+    {
+      path: "/book/booking",
+      element: <RouteResult />,
     },
    
   ]);
