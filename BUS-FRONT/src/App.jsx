@@ -6,6 +6,8 @@ import About from "./pages/About";
 import SearchRoutes from "./pages/booking/SearchRoutes";
 import RouteResult from "./pages/booking/RouteResult";
 import RouteSelection from "./pages/booking/RouteSelection";
+import PassengerForm from "./pages/booking/PassengerForm";
+import SeatSelection from "./pages/booking/SeatSelection";
 
 const App = () => {
 
@@ -41,6 +43,14 @@ const App = () => {
     {
       path: "/book/route-selection",
       element: <RouteSelection />,
+    },
+    {
+      path: "/book/passenger-info",
+      element: <PassengerForm />,
+    },
+    {
+      path: "/book/seat-selection",
+      element: <SeatSelection />,
     },
    
   ]);

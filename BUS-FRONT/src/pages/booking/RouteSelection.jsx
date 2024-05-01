@@ -53,7 +53,7 @@ const RouteSelection = () => {
   };
 
   const handleBooking = () => {
-    const durl = `/book/route-selection${url}`;
+    const durl = `/book/passenger-info${url}`;
     navigate(durl);
   };
 
@@ -101,7 +101,6 @@ const RouteSelection = () => {
             </svg>
             <h2 className="text-xl font-bold ml-4">{data.destination}</h2>
           </div>
-
         </div>
         <div className="text-end">
           <button
@@ -113,36 +112,35 @@ const RouteSelection = () => {
           </button>
         </div>
       </div>
-                <div className="ml-6">
-                <p>
-              <strong>Journey Cost:</strong>{" "}
-              {journeyCost !== null
-                ? `$${journeyCost.toFixed(2)}`
-                : "Calculating..."}
-            </p>
-            <p>
-              <strong>Taxes Per Passenger:</strong>{" "}
-              {totalCostPerPassenger !== null
-                ? `$${totalCostPerPassenger.toFixed(2)}`
-                : "Calculating..."}
-            </p>
-            <p>
-              <strong>Total Taxes for All Passengers:</strong>{" "}
-              {totalCostForAll !== null
-                ? `$${totalCostForAll.toFixed(2)}`
-                : "Calculating..."}
-            </p>
-            <p>
-              <strong>Duration:</strong> {data.duration} minutes
-            </p>
-            <p>
-              <strong>Bus ID:</strong> {data.busId}
-            </p>
-            <p>
-              <strong>Date Added:</strong>{" "}
-              {new Date(data.dateAdded).toDateString()}
-            </p>
-          </div>
+      <div className="ml-6">
+        <p>
+          <strong>Journey Cost:</strong>{" "}
+          {journeyCost !== null
+            ? `$${journeyCost.toFixed(2)}`
+            : "Calculating..."}
+        </p>
+        <p>
+          <strong>Taxes Per Passenger:</strong>{" "}
+          {totalCostPerPassenger !== null
+            ? `$${totalCostPerPassenger.toFixed(2)}`
+            : "Calculating..."}
+        </p>
+        <p>
+          <strong>Total Taxes for All Passengers:</strong>{" "}
+          {totalCostForAll !== null
+            ? `$${totalCostForAll.toFixed(2)}`
+            : "Calculating..."}
+        </p>
+        <p>
+          <strong>SureCharges for All Passengers:</strong>{" "}
+          {surcharges !== null
+            ? `$${surcharges.toFixed(2)}`
+            : "Calculating..."}
+        </p>
+        <p>
+          <strong>Date Added:</strong> {new Date(data.dateAdded).toDateString()}
+        </p>
+      </div>
     </div>
   );
 };
