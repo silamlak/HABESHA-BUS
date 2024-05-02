@@ -8,6 +8,8 @@ import RouteResult from "./pages/booking/RouteResult";
 import RouteSelection from "./pages/booking/RouteSelection";
 import PassengerForm from "./pages/booking/PassengerForm";
 import SeatSelection from "./pages/booking/SeatSelection";
+import Payment from "./pages/booking/Payment";
+import Confirmation from "./pages/booking/Confirmation";
 
 const App = () => {
 
@@ -25,8 +27,7 @@ const App = () => {
           path: "/contact/:id",
           element: <Contact />,
         },
-        
-      ]
+      ],
     },
     {
       path: "/contact",
@@ -37,22 +38,30 @@ const App = () => {
       element: <SearchRoutes />,
     },
     {
-      path: "/book/booking",
+      path: "/book/route/booking",
       element: <RouteResult />,
     },
     {
-      path: "/book/route-selection",
+      path: "/book/route/route-selection",
       element: <RouteSelection />,
     },
     {
-      path: "/book/passenger-info",
+      path: "/book/route/passenger-info",
       element: <PassengerForm />,
     },
     {
-      path: "/book/seat-selection",
+      path: "/book/route/seat-selection",
       element: <SeatSelection />,
     },
-   
+
+    {
+      path: "/book/route/payment",
+      element: <Payment />,
+    },
+    {
+      path: "/book/confirmation",
+      element: <Confirmation />,
+    },
   ]);
 
   return (

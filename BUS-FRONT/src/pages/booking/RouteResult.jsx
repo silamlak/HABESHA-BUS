@@ -44,7 +44,7 @@ const RouteResult = () => {
   
 
   const handleBooking = () => {
-    const durl = `/book/route-selection${url}`
+    const durl = `/book/route/route-selection${url}`;
     navigate(durl)
   }
 

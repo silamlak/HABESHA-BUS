@@ -1,5 +1,7 @@
 import { c_e_h } from "../error_handller/custom_error_handller.js"
 import routeModel from "../models/routeModel.js"
+import seatModel from "../models/seat.js"
+import bookingModel from "../models/booking.js"
 
 export const searchRoute = async (req, res, next) => {
 
@@ -31,6 +33,38 @@ export const searchRoute = async (req, res, next) => {
             res.status(404).json({ message: 'No routes found matching the search criteria' });
         }
         
+    } catch (error) {
+        next(error)
+    }
+}
+
+export const addSeat = async (req, res, next) => {
+    try {
+        console.log(req.body)
+        const seatInfo = seatModel(req.body)
+        await  seatInfo.save()
+        res.status(201).json(seatInfo)
+    } catch (error) {
+        next(error)
+    }
+}
+
+export const getSeats = async (req, res, next) => {
+    try {
+        const {routeId} = req.params
+        const routeSeats = await seatModel.find({route: routeId})
+        res.status(201).json(routeSeats);
+    } catch (error) {
+        next(error)
+    }
+}
+
+export const booking = async (req, res, next) => {
+    try {
+
+        const userBooking = bookingModel(req.body);
+        await userBooking.save()
+        res.status(201).json(userBooking);
     } catch (error) {
         next(error)
     }

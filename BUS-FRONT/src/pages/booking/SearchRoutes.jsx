@@ -111,7 +111,7 @@ const SearchRoutes = () => {
     // Check if all fields are filled
     if (origin && destination && journeyDate && totalPassengers) {
       const formattedDate = formatDate(journeyDate);
-      const url = `/book/booking?origin=${origin.value}&destination=${destination.value}&date=${formattedDate}&passenger=${totalPassengers}&adult=${adultCount}&child=${childCount}`;
+      const url = `/book/route/booking?origin=${origin.value}&destination=${destination.value}&date=${formattedDate}&passenger=${totalPassengers}&adult=${adultCount}&child=${childCount}`;
       console.log(journeyDate)
       navigate(url);
     } else {

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import { FaBusAlt } from "react-icons/fa";
+import { setRoutOfId } from "../../app/feature/passenger-info";
 
 const RouteSelection = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const location = useLocation();
   console.log(location.search);
@@ -28,6 +31,10 @@ const RouteSelection = () => {
       }
     },
   });
+
+  if(data){
+    dispatch(setRoutOfId(data._id))
+  }
 
   const [totalCostPerPassenger, setTotalCostPerPassenger] = useState(null);
   const [totalCostForAll, setTotalCostForAll] = useState(null);
@@ -53,7 +60,7 @@ const RouteSelection = () => {
   };
 
   const handleBooking = () => {
-    const durl = `/book/passenger-info${url}`;
+    const durl = `/book/route/passenger-info${url}`;
     navigate(durl);
   };
 

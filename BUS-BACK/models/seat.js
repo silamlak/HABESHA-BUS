@@ -1,17 +1,22 @@
 import mongoose from 'mongoose'
 
 const seatSchema = new mongoose.Schema({
-  busId: {
+  route: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Bus',
+    ref: 'Route',
     required: true
   },
-  seatNumber: {
+  bookId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Booking',
+    required: true
+  },
+  seat_no: {
+    type: Number,
+    required: true
+  },
+  status: {
     type: String,
-    required: true
-  },
-  isAvailable: {
-    type: Boolean,
     default: true
   },
 }, {timestamps: true});
