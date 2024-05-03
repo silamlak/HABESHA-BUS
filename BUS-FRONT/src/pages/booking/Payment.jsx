@@ -1,17 +1,76 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { clearOut } from "../../app/feature/passenger-info";
+import { setBookId } from "../../app/feature/booking_info";
 
 const Payment = () => {
   const navigate = useNavigate();
-      const location = useLocation();
-      const url = location.search;
-      const dispatch = useDispatch();
-      const rSeat = useSelector((state) => state.info.seat_selection);
+  const location = useLocation();
+  const url = location.search;
+  const dispatch = useDispatch();
+  const [bookingId, setBookingId] = useState("");
+  const rSeat = useSelector((state) => state.info.seat_selection);
+  const rinfo = useSelector((state) => state.info.passanger_info);
+  const rrId = useSelector((state) => state.info.routOfId);
 
+  const allInfo = {
+    passenger_info: rinfo,
+    routeOfId: rrId,
+  };
+
+  const bookingFn = async (allInfo) => {
+    try {
+      const res = await axios.post(
+        `http://localhost:3000/api/user/route/booking`,
+        allInfo
+      );
+      return res.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const seatFn = async (seatInfo) => {
+    try {
+      const res = await axios.post(
+        `http://localhost:3000/api/user/route/seat`,
+        seatInfo
+      );
+      return res.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const { mutate: bookMutation } = useMutation({
+    mutationFn: bookingFn,
+    retry: 3,
+    onError: (error) => {
+      console.log(error);
+    },
+    onSuccess: (data) => {
+      setBookingId(data._id);
+      dispatch(setBookId(data._id));
+      seatMutation({ ...rSeat, bookId: data._id, status: "reserved" });
+    },
+  });
+
+  const { mutate: seatMutation } = useMutation({
+    mutationFn: seatFn,
+    retry: 3,
+    onError: (error) => {
+      console.log(error);
+    },
+    onSuccess: (data) => {
+      dispatch(clearOut());
+    },
+  });
 
   const handlePayment = () => {
+    bookMutation(allInfo);
     const durl = "/book/confirmation";
     navigate(durl);
   };

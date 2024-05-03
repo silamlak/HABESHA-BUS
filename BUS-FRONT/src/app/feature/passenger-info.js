@@ -2,13 +2,12 @@ import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
     passanger_info: {
-        name: 'hello',
-        email: 'man'
+        name: '',
+        email: ''
     },
     seat_selection:{
         route:'',
         seat_no: 0,
-        status: ''
     },
     bagSelection: {},
     paymentOf: {},
@@ -29,9 +28,12 @@ export const pass_info = createSlice({
     setRoutOfId: (state, action) => {
       state.routOfId = action.payload;
     },
+    clearOut: (state) => {
+      return initialState
+    },
   },
 });
 
-export const { setPassInfo, setPassSeat, setRoutOfId } = pass_info.actions;
+export const { setPassInfo, setPassSeat, setRoutOfId, clearOut } = pass_info.actions;
 
 export default pass_info.reducer

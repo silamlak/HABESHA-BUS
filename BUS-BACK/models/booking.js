@@ -22,6 +22,10 @@ const bookingSchema = new mongoose.Schema(
       enum: ["pending", "confirmed", "cancelled"],
       default: "confirmed",
     },
+    uniqueId: {
+      type: String,
+      required: true
+    }
   },
   { timestamps: true }
 );

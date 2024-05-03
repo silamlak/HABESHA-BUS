@@ -10,6 +10,9 @@ import PassengerForm from "./pages/booking/PassengerForm";
 import SeatSelection from "./pages/booking/SeatSelection";
 import Payment from "./pages/booking/Payment";
 import Confirmation from "./pages/booking/Confirmation";
+import BookingHome from "./pages/booking/BookingHome";
+import MyBooking from "./pages/MyBooking";
+import TripStatus from "./pages/TripStatus";
 
 const App = () => {
 
@@ -61,6 +64,18 @@ const App = () => {
     {
       path: "/book/confirmation",
       element: <Confirmation />,
+    },
+    {
+      path: "/book/home",
+      element: <BookingHome />,
+    },
+    {
+      path: "/book/home/mybooking",
+      element: <MyBooking />,
+    },
+    {
+      path: "/book/home/trip/status",
+      element: <TripStatus />,
     },
   ]);
 
