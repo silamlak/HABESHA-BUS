@@ -9,10 +9,6 @@ const routeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  distance: {
-    type: Number,
-    required: true
-  },
   cost: {
     type: Number,
     required: true

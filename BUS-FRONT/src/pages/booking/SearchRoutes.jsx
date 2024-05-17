@@ -142,11 +142,12 @@ const SearchRoutes = () => {
             className="border border-gray-300 rounded px-3 py-2 w-full"
             wrapperClassName="w-full"
             dateFormat="dd/MM/yyyy"
+            minDate={new Date()}
             placeholderText="Select Date"
           />
         </div>
 
-        <div style={{ position: 'relative' }} onClick={handlePassengerBoxClick}>
+        <div style={{ position: "relative" }} onClick={handlePassengerBoxClick}>
           <label>Passengers:</label>
           <div className="border border-gray-300 rounded px-3 py-2 min-w-[200px] cursor-pointer">
             {totalPassengers}
@@ -169,9 +170,6 @@ const SearchRoutes = () => {
             </div>
           )}
         </div>
-
-   
-
       </div>
       <button onClick={handleExchange}>Exchange</button>
       {origin && destination && (
@@ -181,7 +179,9 @@ const SearchRoutes = () => {
           <p>Journey Date: {journeyDate.toDateString()}</p>
         </div>
       )}
-       <button type="submit" onClick={handleFormSubmit}>Search</button>
+      <button type="submit" onClick={handleFormSubmit}>
+        Search
+      </button>
     </div>
   );
 };

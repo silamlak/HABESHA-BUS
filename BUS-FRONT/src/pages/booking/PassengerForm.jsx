@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { setPassInfo } from "../../app/feature/passenger-info";
+import SessionEnd from "../SessionEnd";
 
 const PassengerForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
   const info = useSelector((state) => state.info.passanger_info);
+  const session = useSelector((state) => state.session.expired);
+  console.log(session)
     const [pi, setPi] = useState({
       name: "",
       email: "",
@@ -36,6 +39,7 @@ const PassengerForm = () => {
 
   return (
     <div>
+      <SessionEnd show={session} />
       <div className="max-w-sm mx-auto my-[50px]">
         <div className="mb-5">
           <label

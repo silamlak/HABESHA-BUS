@@ -5,6 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { clearOut } from "../../app/feature/passenger-info";
 import { setBookId } from "../../app/feature/booking_info";
+import { endSession } from "../../app/feature/sessionSlice";
 
 const Payment = () => {
   const navigate = useNavigate();
@@ -70,6 +71,7 @@ const Payment = () => {
   });
 
   const handlePayment = () => {
+    dispatch(endSession());
     bookMutation(allInfo);
     const durl = "/book/confirmation";
     navigate(durl);

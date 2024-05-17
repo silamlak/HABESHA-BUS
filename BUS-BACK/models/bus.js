@@ -14,13 +14,14 @@ const busSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  make: {
-    type: String,
-    required: true
+  registerd: {
+    type: Date,
+    default: Date.now()
   },
-  year: {
-    type: Number,
-    required: true
+  bus_status: {
+    type: String,
+    enum: ['on-maintenance', 'on-service', 'out-of-service'],
+    default: 'on-service'
   },
 }, {timestamps: true});
 

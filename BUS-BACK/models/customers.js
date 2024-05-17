@@ -63,6 +63,11 @@ const customerSchema = new mongoose.Schema(
       required: true,
       default: false,
     },
+    account_status: {
+      type: String,
+      enum: ['on-hold', 'good'],
+      default: 'good'
+    },
   },
   { timestamps: true }
 );

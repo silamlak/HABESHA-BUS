@@ -7,6 +7,7 @@ import cors from 'cors'
 
 import busOperator from './routes/operatorRoute.js'
 import userRoute from './routes/userRoute.js'
+import adminRoute from './routes/adminRoute.js'
 
 const app = express()
 
@@ -18,6 +19,7 @@ app.use(cors())
 app.use(cookieParser())
 app.use(bodyParser.json())
 
+app.use('/api/admin', adminRoute)
 app.use('/api/operator', busOperator)
 app.use('/api/user', userRoute)
 
