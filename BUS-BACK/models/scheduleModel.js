@@ -1,41 +1,23 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
 const scheduleSchema = new mongoose.Schema({
-  routeId: {
+  route_id: {
     type: String,
-    required: true,
-    unique: true,
+    required: true
   },
-  routeName: {
+  bus_id: {
     type: String,
-    required: true,
-    unique: true,
+    required: true
   },
-  routeDescription: {
+  schedule_date: {
+    type: Date,
+    required: true
+  },
+  schedule_status: {
     type: String,
-    required: true,
+    enum: ['active', 'on-hold', 'deactivated'],
+    default: 'active'
   },
-  routeType: {
-    type: String,
-    required: true,
-    enum: ["no-via", "via"],
-  },
-  starting_city: {
-    type: String,
-    required: true,
-  },
-  destination_city: {
-    type: String,
-    required: true,
-  },
-  distance: {
-    type: Number,
-    required: true,
-  },
-  duration: {
-    type: Number,
-    required: true,
-  },
-});
+}, {timestamps: true});
 
-export default mongoose.model('')
+export default mongoose.model("Schedules", scheduleSchema);

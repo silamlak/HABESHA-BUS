@@ -1,7 +1,7 @@
 import cryptoRandomString from 'crypto-random-string'
 
 import { c_e_h } from "../error_handller/custom_error_handller.js"
-import routeModel from "../models/routeModel.js"
+import routeModel from "../models/scheduleModel.js"
 import seatModel from "../models/seat.js"
 import bookingModel from "../models/booking.js"
 
