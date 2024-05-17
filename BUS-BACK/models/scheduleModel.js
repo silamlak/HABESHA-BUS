@@ -32,6 +32,10 @@ const scheduleSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  duration: {
+    type: Number,
+    required: true,
+  },
 });
 
 export default mongoose.model('')

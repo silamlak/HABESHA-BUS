@@ -13,10 +13,7 @@ const routeSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  duration: {
-    type: Number,
-    required: true
-  },
+
   busId: {
     type: String,
     required: true
